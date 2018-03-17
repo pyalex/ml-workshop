@@ -17,7 +17,7 @@ object Sample2 {
   def main(cmdLineArgs: Array[String]): Unit = {
     val (sc, args) = ContextAndArgs(cmdLineArgs)
     val myEmail = "moskalenko.alexey@gmail.com"
-    implicit val aaa: (String => MimeMessage) = MailUtils.parseEmail(encoded = false)(_)
+    implicit val parser: (String => MimeMessage) = MailUtils.parseEmail(encoded = false)(_)
 
     val reader = TextIO.read()
       .from(args("input"))
