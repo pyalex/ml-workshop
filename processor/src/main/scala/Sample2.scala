@@ -26,13 +26,11 @@ object Sample2 {
     val raw = sc.wrap(sc.pipeline.apply(reader))
 
     val inbounds = raw.filter( x => {
-      val email = Parser.parseEmail(x).get
-      email.from != myEmail
+      Parser.parseEmail(x).map(email => email.from != myEmail).getOrElse(false)
     })
 
     val outbounds = raw.filter( x => {
-      val email = Parser.parseEmail(x).get
-      email.from == myEmail
+      Parser.parseEmail(x).map(email => email.from == myEmail).getOrElse(false)
     })
 
 
