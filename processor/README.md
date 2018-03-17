@@ -1,0 +1,5 @@
+--runner=DataflowRunner
+--input=gs://ml-workshop-vilnus/personal
+--output=gs://ml-workshop-vilnus/sample
+--tempLocation=gs://ml-workshop-vilnus/temp
+--gcpTempLocation=gs://ml-workshop-vilnus/temp
